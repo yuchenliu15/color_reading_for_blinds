@@ -71,17 +71,26 @@ void loop() {
   delay(500);  // read every 500 ms (half sec)
   tcs.getRGB(&red, &green, &blue);
   tcs.setInterrupt(true);  // turn off LED
-
+  red = (int)red;
+  green = (int)green;
+  blue = (int)blue;
   /*
     *Access the RGB variable red, green, blue HERE
     *Put the code after this comment
-    *For example to access RED value in integer: int(red)
   */
+
+  unsigned long hex_color = ((int(red) & 0xff) << 16) + ((int(green) & 0xff) << 8) + (int(blue) & 0xff); //easy to categorize when it's in hex
   
-  Serial.print("R:\t"); Serial.print(int(red)); 
-  Serial.print("\tG:\t"); Serial.print(int(green)); 
-  Serial.print("\tB:\t"); Serial.print(int(blue));
+  //color array: red0, orange1, yellow2, green3, blue4, purple5, white6, black7 
+  
+  Serial.print("R:\t"); Serial.print(red); 
+  Serial.print("\tG:\t"); Serial.print(green); 
+  Serial.print("\tB:\t"); Serial.print(blue);
   Serial.print("\n");
+  Serial.print(hex_color,HEX);
+  Serial.print("\n");
+
+  
 
 #if defined(ARDUINO_ARCH_ESP32)
   ledcWrite(1, gammatable[(int)red]);
