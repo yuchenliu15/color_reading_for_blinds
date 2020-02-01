@@ -1,1 +1,1 @@
-"#Color reading for blind people" 
+#Color reading for blind people
