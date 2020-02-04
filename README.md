@@ -1,4 +1,4 @@
-# Color reading for blind people
+# Color reading for blind people (MakeHarvard team project)
 Color sensor Adafruit TCS34725, one speaker and one button on Arduino Uno.
 - Identity the color via the color sensor Adafruit TCS34725
 - Categorize the received RGB value into 7 colors
